@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: algoapp
+  labels:
+    app: algoapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: algoapp
+  template:
+    metadata:
+      labels:
+        app: algoapp
+    spec:
+      containers:
+        - name: algoapp
+          image: christopheorville/algoapp-python:1.0.0
+          ports:
+            - containerPort: 5000
+          imagePullPolicy: Always
